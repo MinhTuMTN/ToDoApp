@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import ToDoApp from "./pages/ToDoApp";
 
