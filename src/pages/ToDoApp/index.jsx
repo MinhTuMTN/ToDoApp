@@ -14,23 +14,66 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 5px;
+  flex: 1;
 `;
 const InputGroup = styled(Box)`
   display: flex;
   height: auto;
   width: 30%;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    width: 70%;
+  }
+  @media (max-width: 425px) {
+    width: 80%;
+    column-gap: 0.7rem;
+  }
 `;
 const DisplayGround = styled.div`
   display: flex;
   flex-direction: column;
   width: 30%;
+
+  @media (max-width: 768px) {
+    width: 70%;
+  }
+  @media (max-width: 425px) {
+    width: 80%;
+    column-gap: 0.7rem;
+  }
 `;
 const ItemGroup = styled.div`
   display: flex;
   margin-top: 10px;
   justify-content: space-between;
 `;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  column-gap: 0.5rem;
+`;
+
+const CustomButton = styled(Button)`
+  @media (max-width: 768px) {
+    max-width: 3.8rem !important;
+    max-height: 2.3rem !important;
+    min-width: 3.8rem !important;
+    min-height: 2.3rem !important;
+
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 425px) {
+    max-width: 3.8rem !important;
+    max-height: 2.3rem !important;
+    min-width: 3.8rem !important;
+    min-height: 2.3rem !important;
+
+    font-size: 0.7rem;
+  }
+`;
+
 function ToDoListPage(props) {
   const [inputText, setInputText] = useState("");
   const [toDoList, setToDoList] = useState([]);
@@ -80,6 +123,7 @@ function ToDoListPage(props) {
   };
 
   useEffect(() => {
+    document.title = "To Do List";
     handleGetAllToDo();
   }, []);
 
@@ -112,7 +156,7 @@ function ToDoListPage(props) {
       <DisplayGround>
         {toDoList.map((toDo) => (
           <ItemGroup key={toDo.id}>
-            <div>
+            <div style={{ width: "65%" }}>
               <Checkbox
                 type="checkbox"
                 checked={toDo.isCompleted}
@@ -120,25 +164,28 @@ function ToDoListPage(props) {
               />
               <span>{toDo.task}</span>
             </div>
-            <Box
+            <ButtonGroup
               sx={{
                 display: "flex",
                 justifyContent: "space-between",
-                width: "30%",
+                width: "35%",
               }}
             >
-              <Button variant="contained" onClick={() => handleEditToDo(toDo)}>
+              <CustomButton
+                variant="contained"
+                onClick={() => handleEditToDo(toDo)}
+              >
                 Edit
-              </Button>
-              <Button
+              </CustomButton>
+              <CustomButton
                 onClick={() => handleDeleteToDo(toDo)}
                 variant="contained"
                 type="button"
                 color="error"
               >
                 Delete
-              </Button>
-            </Box>
+              </CustomButton>
+            </ButtonGroup>
           </ItemGroup>
         ))}
       </DisplayGround>
