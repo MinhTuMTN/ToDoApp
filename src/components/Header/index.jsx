@@ -70,8 +70,8 @@ function Header(props) {
         </Typography>
       </Left>
       <Middle>
-        <CustomLink to="/" text="Home" />
-        <CustomLink to="/todo" text="To Do" />
+        <CustomLink to="/ToDoApp/" text="Home" />
+        <CustomLink to="/ToDoApp/todo" text="To Do" />
       </Middle>
       <Right></Right>
     </Wrapper>

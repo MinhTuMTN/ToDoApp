@@ -3,6 +3,10 @@ import axios from "axios";
 const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
   timeout: 1000,
+  headers: {
+    "Content-Type": "application/json",
+    "ngrok-skip-browser-warning": "69420",
+  },
 });
 
 const handleRequest = async (requestMethod, url, data, headers, params) => {

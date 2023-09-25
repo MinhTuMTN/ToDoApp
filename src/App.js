@@ -19,8 +19,8 @@ function App() {
     <Wrapper>
       <Header />
       <Routes>
-        <Route path="ToDoApp/" element={<Login />} />
-        <Route path="ToDoApp/todo" element={<ToDoApp />} />
+        <Route path="/ToDoApp/" element={<Login />} />
+        <Route path="/ToDoApp/todo" element={<ToDoApp />} />
       </Routes>
     </Wrapper>
   );
